@@ -17,3 +17,4 @@ switch-java() {
 }
 switch-java 1.8 2> /dev/null
 
+export VAULT_ADDR="https://vault.amperity.top:8200"
