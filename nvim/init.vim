@@ -1,3 +1,9 @@
+lua require('plugins')
+
+""" vim-codefmt setup
+call glaive#Install()
+autocmd FileType clojure AutoFormatBuffer cljstyle
+
 """ Main Configurations
 filetype plugin indent on
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent
@@ -10,5 +16,5 @@ set wrap breakindent
 set encoding=utf-8
 set textwidth=0
 set hidden
-set number
 set title
+colorscheme dracula
