@@ -10,6 +10,15 @@ vim.cmd([[
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+
+  -- treesitter + rainbow parens
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+  }
+  use 'p00f/nvim-ts-rainbow'
+
+  -- Editor Plugins
   use {'dracula/vim', as = 'dracula'}
 
   -- Clojure Plugins

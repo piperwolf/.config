@@ -1,4 +1,6 @@
+""" Import Plugins
 lua require('plugins')
+lua require('treesitter-config')
 
 """ Main Configurations
 filetype plugin indent on
