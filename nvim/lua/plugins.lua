@@ -17,4 +17,11 @@ return require('packer').startup(function()
   use 'google/vim-glaive'
   use 'google/vim-codefmt'
   use 'Olical/conjure'
+  use 'guns/vim-sexp'
+  use 'tpope/vim-sexp-mappings-for-regular-people'
+  use 'easymotion/vim-easymotion'
+
+  -- Autocomplete
+  use 'Shougo/deoplete.nvim'
+  use 'ncm2/float-preview.nvim'
 end)
