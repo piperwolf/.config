@@ -7,8 +7,11 @@ alias alias aurora="arch -x86_64 aurora"
 # Specify default editor. Possible values: vim, nano, ed etc.
 export EDITOR=vim
 
-#Prompt
+# Prompt
 PROMPT='%F{51}%1d%f $'
+
+# Enable autocomplete
+autoload -Uz compinit && compinit
 
 # Allow switching between java versions
 switch-java() {
