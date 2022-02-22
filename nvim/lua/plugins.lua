@@ -30,6 +30,11 @@ return require('packer').startup(function()
   use 'tpope/vim-sexp-mappings-for-regular-people'
   use 'easymotion/vim-easymotion'
 
+  -- Vim Jack In
+  use 'tpope/vim-dispatch'
+  use 'clojure-vim/vim-jack-in'
+  use 'radenling/vim-dispatch-neovim'
+
   -- Autocomplete
   use 'Shougo/deoplete.nvim'
   use 'ncm2/float-preview.nvim'
