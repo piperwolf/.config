@@ -22,9 +22,7 @@ return require('packer').startup(function()
   use {'dracula/vim', as = 'dracula'}
 
   -- Clojure Plugins
-  use 'google/vim-maktaba'
-  use 'google/vim-glaive'
-  use 'google/vim-codefmt'
+  use {'google/vim-codefmt', requires = {'google/vim-maktaba', 'google/vim-glaive'}}
   use 'Olical/conjure'
   use 'guns/vim-sexp'
   use 'tpope/vim-sexp-mappings-for-regular-people'
