@@ -1,0 +1,11 @@
+(* 2 6)
+(iterate inc 1)
+(take 10 (iterate inc 1))
+(take 20 1)
+(take 20 #(identity 1))
+(take 10 (repeatedly 1)
+)
+(take 10 (repeatedly 1))
+(take 10 (repeat 1))
+(repeatedly 100 #(identity 1))
+exit
