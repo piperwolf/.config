@@ -19,11 +19,20 @@ colorscheme dracula
 
 """ Remappings
 
+" Leader key
+let mapleader = "\<space>"
+let maplocalleader = "\<space>"
+
+" Stop highlighting
+nnoremap <leader>n <cmd>noh<cr>
+
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>ft <cmd>Telescope<cr>
+nnoremap <leader>fk <cmd>Telescope keymaps<cr>
 
 """ Autocomplete configuration
 """ NOTE: Requires installing python3 + neovim module
