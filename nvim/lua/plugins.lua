@@ -19,6 +19,11 @@ return require('packer').startup(function()
   use 'p00f/nvim-ts-rainbow'
 
   -- Editor Plugins
+  -- Note: run `brew install ripgrep` to enable Telescope live-grep
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use {'dracula/vim', as = 'dracula'}
 
   -- Clojure Plugins
