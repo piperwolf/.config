@@ -34,6 +34,9 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>ft <cmd>Telescope<cr>
 nnoremap <leader>fk <cmd>Telescope keymaps<cr>
 
+" Fix issue causing telescope to cause "Not Allowed" error
+autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
+
 """ Autocomplete configuration
 """ NOTE: Requires installing python3 + neovim module
 
