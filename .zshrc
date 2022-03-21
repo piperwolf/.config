@@ -2,7 +2,7 @@
 
 # Aliases
 alias vim="nvim"
-alias alias aurora="arch -x86_64 aurora"
+alias aurora="arch -x86_64 aurora"
 
 # Specify default editor. Possible values: vim, nano, ed etc.
 export EDITOR=vim
