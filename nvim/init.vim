@@ -15,6 +15,7 @@ set encoding=utf-8
 set textwidth=0
 set hidden
 set title
+set splitright
 colorscheme dracula
 
 """ Remappings
@@ -28,6 +29,9 @@ nnoremap <leader>n <cmd>noh<cr>
 
 " Map addition operation
 nnoremap <C-a> <C-c>
+
+" Conjure
+let g:conjure#log#wrap = v:true
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
