@@ -5,5 +5,7 @@
                   [lein-cprint "1.3.3"]
                   [lein-ancient "0.7.0"]
                   [lein-cloverage "1.2.2"]
-                  [com.jakemccrary/lein-test-refresh "0.25.0"]
-                  [lein-monolith "1.7.0"]]}}
+                  [com.jakemccrary/lein-test-refresh "0.25.0"]]
+        :dependencies [[pjstadig/humane-test-output "0.11.0"]]
+        :injections [(require 'pjstadig.humane-test-output)
+                     (pjstadig.humane-test-output/activate!)]}}

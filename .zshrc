@@ -3,6 +3,7 @@
 # Aliases
 alias vim="nvim"
 alias aurora="arch -x86_64 aurora"
+alias updown="(cd ~/proj/app/util/docker && docker compose down && docker compose up -d --force-recreate)"
 
 # Specify default editor. Possible values: vim, nano, ed etc.
 export EDITOR=vim
@@ -24,3 +25,4 @@ switch-java 1.8 2> /dev/null
 export GODEBUG=asyncpreemptoff=1
 
 export VAULT_ADDR="https://vault.amperity.top:8200"
+export VAULT_TOKEN=$(cat ~/.vault-token)
