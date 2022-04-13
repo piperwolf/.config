@@ -59,3 +59,7 @@ let g:float_preview#max_height = 40
 call glaive#Install()
 autocmd FileType clojure AutoFormatBuffer cljstyle
 
+""" Linting
+""" Before using kondo: https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md
+let g:ale_linters = {'clojure': ['clj-kondo']}
+

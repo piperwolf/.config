@@ -32,6 +32,7 @@ return require('packer').startup(function()
   use 'guns/vim-sexp'
   use 'tpope/vim-sexp-mappings-for-regular-people'
   use 'easymotion/vim-easymotion'
+  use 'dense-analysis/ale'
 
   -- Vim Jack In
   use 'tpope/vim-dispatch'
