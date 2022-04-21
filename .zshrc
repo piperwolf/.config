@@ -5,6 +5,9 @@ alias vim="nvim"
 alias aurora="arch -x86_64 aurora"
 alias updown="(cd ~/proj/app/util/docker && docker compose down && docker compose up -d --force-recreate)"
 
+# Include app/bin on path
+export PATH=~/proj/app/bin:$PATH
+
 # Specify default editor. Possible values: vim, nano, ed etc.
 export EDITOR=vim
 
