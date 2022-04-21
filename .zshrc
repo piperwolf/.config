@@ -25,4 +25,3 @@ switch-java 1.8 2> /dev/null
 export GODEBUG=asyncpreemptoff=1
 
 export VAULT_ADDR="https://vault.amperity.top:8200"
-export VAULT_TOKEN=$(cat ~/.vault-token)
