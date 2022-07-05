@@ -16,8 +16,10 @@ restart-all() {
    (cd ~/proj/app/service/web/web-ui && docker compose restart web-proxy)
 }
 
-# Include app/bin on path
-export PATH=~/proj/app/bin:$PATH
+# Path
+PATH+=~/proj/app/bin
+PATH+=/root/.local/bin
+export PATH
 
 # Specify default editor. Possible values: vim, nano, ed etc.
 export EDITOR=vim
