@@ -1,0 +1,26 @@
+{
+  "session_name": "helix",
+  "starting_directory": "~/projects/helix",
+  "windows": [
+    {
+      "window_name": "git",
+      "panes": [
+        "git status"
+      ]
+    },
+    {
+      "window_name": "vim",
+      "panes": [
+        "vim"
+      ]
+    },
+    {
+      "window_name": "servers: workshop/test",
+      "layout": "even-horizontal",
+      "panes": [
+        "shadow-cljs watch dev",
+        "shadow-cljs watch test"
+      ]
+    }
+  ]
+}
