@@ -1,0 +1,47 @@
+{
+  "session_name": "amp-web-ui",
+  "start_directory": "~/projects/app",
+  "windows": [
+    {
+      "window_name": "git",
+      "panes": [
+        "git status"
+      ]
+    },
+    {
+      "window_name": "vim",
+      "panes": [
+        "vim"
+      ]
+    },
+    {
+      "window_name": "web-ui (app/tests)",
+      "layout": "even-horizontal",
+      "start_directory": "~/projects/app/service/web/web-ui",
+      "panes": [
+        {
+          "shell_command": [
+            "docker-compose up -d web-proxy",
+            "shadow-cljs watch app"
+          ]
+        },
+        "shadow-cljs watch tests"
+      ]
+    },
+    {
+      "window_name": "storybook (sb/stories/tests)",
+      "layout": "even-horizontal",
+      "start_directory": "~/projects/app/lib/design",
+      "panes": [
+        {
+          "shell_command": [
+            "npm i",
+            "npm run storybook"
+          ]
+        },
+        "npx shadow-cljs watch stories",
+        "shadow-cljs watch test"
+      ]
+    }
+  ]
+}
