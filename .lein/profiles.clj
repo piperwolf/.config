@@ -6,6 +6,8 @@
                   [lein-ancient "0.7.0"]
                   [lein-cloverage "1.2.2"]
                   [com.jakemccrary/lein-test-refresh "0.25.0"]]
-        :dependencies [[pjstadig/humane-test-output "0.11.0"]]
-        :injections [(require 'pjstadig.humane-test-output)
+        :dependencies [[hashp "0.2.1"]
+                       [pjstadig/humane-test-output "0.11.0"]]
+        :injections [(require 'hashp.core)
+                     (require 'pjstadig.humane-test-output)
                      (pjstadig.humane-test-output/activate!)]}}
