@@ -25,7 +25,7 @@
             "shadow-cljs watch app"
           ]
         },
-        "shadow-cljs watch tests"
+        "shadow-cljs watch test"
       ]
     },
     {

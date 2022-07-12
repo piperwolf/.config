@@ -17,7 +17,7 @@ restart-all() {
 }
 
 # Path
-PATH+=~/proj/app/bin
+PATH+=~/projects/app/bin
 PATH+=/root/.local/bin
 export PATH
 
