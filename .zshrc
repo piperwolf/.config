@@ -4,21 +4,23 @@
 alias vim="nvim"
 alias aurora="arch -x86_64 aurora"
 
+export PROJECTS=~/projects
+
 web-ui-up() {
-   cd ~/proj/app/service/web/web-ui
+   cd $PROJECTS/app/service/web/web-ui
    docker-composer -d up web-proxy
    shadow-cljs watch app --config-merge '{:devtools {:preloads [hashp.core]}}'
 }
 
 restart-all() {
    echo Restarting all docker containers\n
-   (cd ~/proj/app/util/docker && docker compose down && docker compose up -d --force-recreate)
-   (cd ~/proj/app/service/web/web-ui && docker compose restart web-proxy)
+   (cd $PROJECTS/app/util/docker && docker compose down && docker compose up -d --force-recreate)
+   (cd $PROJECTS/app/service/web/web-ui && docker compose restart web-proxy)
 }
 
 # Path
-PATH+=~/projects/app/bin
-PATH+=/root/.local/bin
+PATH+=$PROJECTS/app/bin 
+PATH+=/root/.local/bin 
 export PATH
 
 # Specify default editor. Possible values: vim, nano, ed etc.
