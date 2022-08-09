@@ -19,8 +19,8 @@ restart-all() {
 }
 
 # Path
-PATH+=$PROJECTS/app/bin 
-PATH+=/root/.local/bin 
+path+=($PROJECTS'/app/bin')
+path+=('/root/.local/bin')
 export PATH
 
 # Specify default editor. Possible values: vim, nano, ed etc.
