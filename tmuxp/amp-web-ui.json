@@ -22,7 +22,7 @@
         {
           "shell_command": [
             "docker-compose up -d web-proxy",
-            "shadow-cljs watch app"
+            "lein refresh && npm i && shadow-cljs watch app"
           ]
         },
         "shadow-cljs watch test"
