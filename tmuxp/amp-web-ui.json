@@ -19,12 +19,7 @@
       "layout": "even-horizontal",
       "start_directory": "~/projects/app/service/web/web-ui",
       "panes": [
-        {
-          "shell_command": [
-            "docker-compose up -d web-proxy",
-            "lein refresh && npm i && shadow-cljs watch app"
-          ]
-        },
+        "shadow-cljs watch app --config-merge '{:devtools {:preloads [hashp.core]}}'",
         "shadow-cljs watch test"
       ]
     },
