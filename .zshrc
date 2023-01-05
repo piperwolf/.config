@@ -15,6 +15,13 @@ web-ui-up() {
    tmuxp load amp-web-ui
 }
 
+nuke-m2() {
+   rm -rf ~/.m2
+   cd $PROJECTS/app/services/web/web-ui
+   lein monolith clear-fingerprints
+   lein refresh
+}
+
 restart-all() {
    echo Restarting all docker containers
    (cd $PROJECTS/app/util/docker && docker compose down && docker compose up -d --force-recreate)

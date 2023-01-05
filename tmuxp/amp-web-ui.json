@@ -19,8 +19,8 @@
       "layout": "even-horizontal",
       "start_directory": "~/projects/app/service/web/web-ui",
       "panes": [
-        "shadow-cljs watch app --config-merge '{:devtools {:preloads [hashp.core]}}'",
-        "shadow-cljs watch test"
+        "lein refresh && shadow-cljs watch app --config-merge '{:devtools {:preloads [hashp.core]}}'",
+        "echo shadow-cljs watch test"
       ]
     },
     {
@@ -34,8 +34,8 @@
             "npm run storybook"
           ]
         },
-        "npx shadow-cljs watch stories",
-        "shadow-cljs watch test"
+        "echo npx shadow-cljs watch stories",
+        "echo shadow-cljs watch test"
       ]
     }
   ]
