@@ -41,6 +41,10 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>ft <cmd>Telescope<cr>
 nnoremap <leader>fk <cmd>Telescope keymaps<cr>
 
+" Scroll Cursor
+map <ScrollWheelUp> <Up>
+map <ScrollWheelDown> <Down>
+
 " Fix issue causing telescope to cause "Not Allowed" error
 autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
 
