@@ -19,7 +19,12 @@
       "layout": "even-horizontal",
       "start_directory": "~/projects/app/service/web/web-ui",
       "panes": [
-        "lein refresh && shadow-cljs watch app --config-merge '{:devtools {:preloads [hashp.core]}}'",
+        {
+          "shell_command": [
+            "docker-compose up -d web-proxy",
+            "lein refresh && shadow-cljs watch app --config-merge '{:devtools {:preloads [hashp.core]}}'"
+          ]
+        },
         "echo shadow-cljs watch test"
       ]
     },
@@ -31,11 +36,26 @@
         {
           "shell_command": [
             "npm i",
-            "npm run storybook"
+            "echo npm run storybook"
           ]
         },
-        "echo npx shadow-cljs watch stories",
+        "echo lein refresh && npx shadow-cljs watch stories",
         "echo shadow-cljs watch test"
+      ]
+    },
+    {
+      "window_name": "cypress (tests/cypress/sidecar)",
+      "layout": "even-horizontal",
+      "start_directory": "~/projects/app/service/web/web-ui-cypress",
+      "panes": [
+        "echo lein refresh && shadow-cljs watch cypress",
+        "echo npx cypress open",
+        {
+          "shell_command": [
+            "cd ../web-test-sidecar",
+            "echo lein run:aws-dev daemon"
+          ]
+        }
       ]
     }
   ]
