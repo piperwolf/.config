@@ -1,7 +1,7 @@
 run: clean
-	-ln -s "${PWD}/.zshrc" ~/.zshrc
-	-ln -s "${PWD}/.lein" ~/.lein
-	-ln -s "${PWD}/.tmux.conf" ~/.tmux.conf
+	-ln -s "${PWD}/zshrc" ~/.zshrc
+	-ln -s "${PWD}/lein" ~/.lein
+	-ln -s "${PWD}/tmux.conf" ~/.tmux.conf
 	-ln -s "${PWD}/alacritty" ~/.config/alacritty
 	-ln -s "${PWD}/amperity" ~/.config/amperity
 	-ln -s "${PWD}/clj-kondo" ~/.config/clj-kondo
