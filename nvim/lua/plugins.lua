@@ -24,7 +24,10 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  -- Themes
   use {'dracula/vim', as = 'dracula'}
+  use 'EdenEast/nightfox.nvim'
 
   -- Clojure Plugins
   use {'google/vim-codefmt', requires = {'google/vim-maktaba', 'google/vim-glaive'}}

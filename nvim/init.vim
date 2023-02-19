@@ -16,7 +16,7 @@ set textwidth=0
 set hidden
 set title
 set splitright
-colorscheme dracula
+colorscheme terafox
 
 """ Remappings
 
@@ -61,7 +61,8 @@ let g:float_preview#max_height = 40
 
 """ vim-codefmt setup
 call glaive#Install()
-autocmd FileType clojure AutoFormatBuffer cljstyle
+" autocmd FileType clojure AutoFormatBuffer cljstyle
+autocmd BufWritePost *.cl* execute 'silent !cljstyle fix "%:p"' | :edit!
 
 """ Linting
 """ Before using kondo: https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md
