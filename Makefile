@@ -10,6 +10,7 @@ run: clean
 	-ln -s "${PWD}/shadow-cljs" ~/.config/shadow-cljs
 	-ln -s "${PWD}/tmuxp" ~/.config/tmuxp
 	-ln -s "${PWD}/kitty" ~/.config/kitty
+	-ln -s "${PWD}/ssh-config" ~/.ssh/config
 clean:
 	-unlink ~/.zshrc
 	-unlink ~/.lein
@@ -22,3 +23,4 @@ clean:
 	-unlink ~/.config/shadow-cljs
 	-unlink ~/.config/tmuxp
 	-unlink ~/.config/kitty
+	-unlink ~/.ssh/config
