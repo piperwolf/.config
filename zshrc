@@ -69,3 +69,20 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+jira-bulk-root () {
+ if [[ -z "$1" || "$1" =~ '^(-h)|(--help)$' ]]; then;
+   printf "\n  Root all tickets matching the query <jql> to ticket <root ticket>"
+   printf "\n  • Usage:   jira-bulk-root <root-ticket> <jql>"
+   printf "\n  • Example: jira-bulk-root MAX-0000 'text ~ \"glow task failed\" and project = ops and created >= \"-7d\" and text ~ johnnywas and statuscategory != done'\n\n"
+ elif [ -z "$2" ]; then;
+   printf "\n  Please include a JQL query string for the tickets to root\n\n"
+ else
+   jira ls -q $2 -t table
+   printf "Going to link all of the above tickets, saying that they are 'Caused by' ticket  '$1'\n"
+   printf "%s" "Press <Enter> to continue…"
+   read ans
+   for ticket in $(jira ls -q $2 | rg '^.*?(?=:)' -o --pcre2); do;
+     jira issuelink $ticket "1 Problem/Incident" $1
+   done
+ fi
+}
