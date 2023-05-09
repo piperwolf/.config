@@ -86,3 +86,9 @@ jira-bulk-root () {
    done
  fi
 }
+
+vtoken() {
+    TOKEN=`vault token create -field=token`
+    export VAULT_TOKEN=$TOKEN
+    echo $VAULT_TOKEN | pbcopy
+}
