@@ -6,6 +6,11 @@ alias aurora="arch -x86_64 aurora"
 
 export PROJECTS=~/projects
 
+vtoken-reg() {
+   vault login -method=github token="$1"
+   cp ~/.vault-token ~/.vault-copy
+}
+
 web-ui-up() {
    cd $PROJECTS/app/service/web/web-ui
    docker-compose up -d web-proxy
@@ -24,8 +29,9 @@ nuke-m2() {
 
 restart-all() {
    echo Restarting all docker containers
+   docker inspect --format='' docker-linkerd-1 | jq -r ".[0].State.Health"
    (cd $PROJECTS/app/util/docker && docker compose down && docker compose up -d --force-recreate)
-   (cd $PROJECTS/app/service/web/web-ui && docker compose restart web-proxy)
+   (cd $PROJECTS/app/service/web/web-ui && docker compose down && docker compose up -d --force-recreate)
 }
 
 # Path
@@ -88,6 +94,7 @@ jira-bulk-root () {
 }
 
 vtoken() {
+    cp ~/.vault-copy ~/.vault-token
     TOKEN=`vault token create -field=token`
     export VAULT_TOKEN=$TOKEN
     echo $VAULT_TOKEN | pbcopy

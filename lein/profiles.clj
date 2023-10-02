@@ -1,6 +1,6 @@
 {:user {:plugins [[lein-monolith "1.8.0"]
                   [mvxcvi/whidbey "2.2.1"]
-                  [cider/cider-nrepl "0.24.0"]
+                  [cider/cider-nrepl "0.30.0"]
                   [lein-cprint "1.3.3"]
                   [lein-ancient "0.7.0"]
                   [lein-cloverage "1.2.2"]
