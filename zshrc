@@ -29,9 +29,17 @@ nuke-m2() {
 
 restart-all() {
    echo Restarting all docker containers
+   docker logs docker-linkerd-1 &> ~/Downloads/linkerd-logs.txt
+   echo Logs written to ~/Downloads/linkerd-logs.txt
    docker inspect --format='' docker-linkerd-1 | jq -r ".[0].State.Health"
    (cd $PROJECTS/app/util/docker && docker compose down && docker compose up -d --force-recreate)
    (cd $PROJECTS/app/service/web/web-ui && docker compose down && docker compose up -d --force-recreate)
+   docker inspect --format='' docker-linkerd-1 | jq -r ".[0].State.Health"
+}
+
+print-wipe() {
+   rm $PROJECTS/app/.lein-monolith-fingerprints
+   lein refresh
 }
 
 # Path

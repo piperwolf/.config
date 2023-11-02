@@ -12,7 +12,8 @@
       "window_name": "vim",
       "panes": [
         "vim"
-      ]
+      ],
+      "focus": true
     },
     {
       "window_name": "web-ui (app/tests)",
@@ -23,9 +24,15 @@
           "shell_command": [
             "docker-compose up -d web-proxy",
             "lein refresh && shadow-cljs watch app --config-merge '{:devtools {:preloads [hashp.core]}}'"
-          ]
+          ],
+          "focus": true
         },
-        "echo shadow-cljs watch test"
+        {
+          "shell_command": [
+            "shadow-cljs watch test"
+          ],
+          "enter": false
+        }
       ]
     },
     {
@@ -35,12 +42,23 @@
       "panes": [
         {
           "shell_command": [
-            "npm i",
-            "echo npm run storybook"
-          ]
+            "npm i && npm run storybook"
+          ],
+          "enter": false,
+          "focus": true
         },
-        "echo lein refresh && npx shadow-cljs watch stories",
-        "echo shadow-cljs watch test"
+        {
+          "shell_command": [
+            "lein refresh && npx shadow-cljs watch stories"
+          ],
+          "enter": false
+        },
+        {
+          "shell_command": [
+            "shadow-cljs watch test"
+          ],
+          "enter": false
+        }
       ]
     },
     {
@@ -48,12 +66,26 @@
       "layout": "even-horizontal",
       "start_directory": "~/projects/app/service/web/web-ui-cypress",
       "panes": [
-        "echo lein refresh && shadow-cljs watch cypress",
-        "echo npx cypress open",
+        {
+          "shell_command": [
+            "lein refresh && shadow-cljs watch cypress"
+          ],
+          "enter": false,
+          "focus": true
+        },
+        {
+          "shell_command": [
+            "npx cypress open"
+          ],
+          "enter": false
+        },
         {
           "shell_command": [
             "cd ../web-test-sidecar",
-            "echo lein run:aws-dev daemon"
+            {
+              "cmd": "lein run:aws-dev daemon",
+              "enter": false
+            }
           ]
         }
       ]

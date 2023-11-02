@@ -1,0 +1,27 @@
+{
+  "session_name": "vconfig",
+  "start_directory": "~/vconfig",
+  "windows": [
+    {
+      "window_name": "git",
+      "panes": [
+        "git status"
+      ]
+    },
+    {
+      "window_name": "vim",
+      "panes": [
+        "vim"
+      ]
+    },
+    {
+      "window_name": "scratch",
+      "panes": [
+        {
+          "shell_command": ["source ~/.zshrc"],
+          "enter": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 # Generated files
 packer_compiled.lua
 .lein/repl-history
+lein/repl-history
 
 # Application configs
 Code/

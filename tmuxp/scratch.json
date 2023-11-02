@@ -1,0 +1,18 @@
+{
+  "session_name": "scratch",
+  "start_directory": "~/projects/app",
+  "windows": [
+    {
+      "window_name": "git",
+      "panes": [
+        "git status"
+      ]
+    },
+    {
+      "window_name": "vim",
+      "panes": [
+        "vim"
+      ]
+    }
+  ]
+}
