@@ -42,6 +42,10 @@ print-wipe() {
    lein refresh
 }
 
+bbr() {
+   rlwrap bb
+}
+
 # Path
 path+=($PROJECTS'/app/bin')
 path+=('/root/.local/bin')
