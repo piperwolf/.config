@@ -106,8 +106,17 @@ jira-bulk-root () {
 }
 
 vtoken() {
-    cp ~/.vault-copy ~/.vault-token
-    TOKEN=`vault token create -field=token`
-    export VAULT_TOKEN=$TOKEN
-    echo $VAULT_TOKEN | pbcopy
+  cp ~/.vault-copy ~/.vault-token
+  TOKEN=`vault token create -field=token`
+  export VAULT_TOKEN=$TOKEN
+  echo $VAULT_TOKEN | pbcopy
+}
+
+initial-install() {
+  # CLJ Kondo
+  curl -sLO https://raw.githubusercontent.com/clj-kondo/clj-kondo/master/script/install-clj-kondo
+  chmod +x install-clj-kondo
+  ./install-clj-kondo
+  # tmux plugins
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
