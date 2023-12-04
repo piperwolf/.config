@@ -45,4 +45,7 @@ return require('packer').startup(function()
   -- Autocomplete
   use 'Shougo/deoplete.nvim'
   use 'ncm2/float-preview.nvim'
+
+  -- Copilot
+  use 'github/copilot.vim'
 end)
