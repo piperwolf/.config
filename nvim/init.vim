@@ -16,7 +16,7 @@ set textwidth=0
 set hidden
 set title
 set splitright
-colorscheme nightfox
+colorscheme dayfox
 
 """ Remappings
 

@@ -22,7 +22,20 @@ return require('packer').startup(function()
   -- Note: run `brew install ripgrep` to enable Telescope live-grep
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { {'nvim-lua/plenary.nvim'} },
+    config = function ()
+      require('telescope').setup{
+        defaults = {
+          layout_strategy = "vertical",
+          layout_config = {
+            height = vim.o.lines - 5, -- maximally available lines
+            width = vim.o.columns - 8, -- maximally available columns
+            prompt_position = "top",
+            preview_height = 0.6, -- 60% of available lines
+          },
+        },
+      }
+    end
   }
 
   -- Themes
