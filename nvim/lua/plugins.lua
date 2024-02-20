@@ -28,6 +28,7 @@ return require('packer').startup(function()
   -- Themes
   use {'dracula/vim', as = 'dracula'}
   use 'EdenEast/nightfox.nvim'
+  use 'morhetz/gruvbox'
 
   -- Clojure Plugins
   use {'google/vim-codefmt', requires = {'google/vim-maktaba', 'google/vim-glaive'}}
@@ -48,4 +49,16 @@ return require('packer').startup(function()
 
   -- Copilot
   use 'github/copilot.vim'
+
+  -- Galaxyline
+  use({
+  'glepnir/galaxyline.nvim',
+  branch = 'main',
+  -- your statusline
+  config = function()
+    require("customline")
+  end,
+  -- some optional icons
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+})
 end)
