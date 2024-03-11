@@ -120,3 +120,27 @@ initial-install() {
   # tmux plugins
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
+
+# For some reason this incanatation works `aws-profile DeveloperAccess-SpencerWolf`
+aws-profile () {
+  export AWS_PROFILE="$1"
+  aws sso login
+  aws configure list
+}
+
+# File Utils
+
+mvm () {
+  mkdir -p $2 > /dev/null
+  mv $1 $2
+}
+
+cpm () {
+  mkdir -p $2 > /dev/null
+  cp $1 $2
+}
+
+touchm () {
+  mkdir -p $1 > /dev/null
+  touch $1
+}
