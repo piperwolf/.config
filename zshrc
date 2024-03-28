@@ -24,12 +24,12 @@ nuke-m2() {
    rm -rf ~/.m2
    cd $PROJECTS/app/services/web/web-ui
    lein monolith clear-fingerprints
-   lein refresh
    cd $PROJECTS/app/util/amperity-connector-template
    lein install
    cd $PROJECTS/app
    lein monolith each :parallel 4 :refresh build :report install
-   echo "If this breaks, meybe uncomment lein-template in profile.clj"
+   echo "If this breaks, maybe uncomment lein-template in profile.clj"
+   echo "Sometimes installing upstream works"
 }
 
 restart-all() {
