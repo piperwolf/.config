@@ -50,6 +50,7 @@ return require('packer').startup(function()
   use 'tpope/vim-sexp-mappings-for-regular-people'
   use 'easymotion/vim-easymotion'
   use 'dense-analysis/ale'
+  use 'nvim-treesitter/nvim-treesitter-context'
 
   -- Vim Jack In
   use 'tpope/vim-dispatch'
