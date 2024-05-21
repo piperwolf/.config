@@ -1,4 +1,5 @@
 """ Import Plugins
+lua require('settings')
 lua require('plugins')
 lua require('treesitter-config')
 

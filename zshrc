@@ -135,17 +135,17 @@ aws-profile () {
 
 # File Utils
 
-mvm () {
-  mkdir -p $2 > /dev/null
-  mv $1 $2
+# Function to create a file and any necessary directories
+touchm() {
+  mkdir -p "$(dirname "$1")" && touch "$1"
 }
 
-cpm () {
-  mkdir -p $2 > /dev/null
-  cp $1 $2
+# Function to copy a file and create any necessary directories
+cpm() {
+  mkdir -p "$(dirname "$2")" && cp "$1" "$2"
 }
 
-touchm () {
-  mkdir -p $1 > /dev/null
-  touch $1
+# Function to move a file and create any necessary directories
+mvm() {
+  mkdir -p "$(dirname "$2")" && mv "$1" "$2"
 }
