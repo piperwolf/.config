@@ -149,3 +149,50 @@ cpm() {
 mvm() {
   mkdir -p "$(dirname "$2")" && mv "$1" "$2"
 }
+
+# OPENAPI Variables
+#
+export OPENAI_API_BASE="https://amperity-engineering.openai.azure.com"
+export OPENAI_API_KEY=$(vault read -field=key az-stage/secret/service/openai/amperity-engineering)
+export OPENAI_TYPE=azure
+export OPENAI_API_VERSION="2024-02-01"
+export OPENAI_DEPLOYMENT_NAME="gpt-4o"
+
+ask() {
+  # Check if there's input from a pipe. If there is, store it in the 'message' variable.
+  if [ -p /dev/stdin ]; then
+    message_segment=",{\"role\":\"user\",\"content\":$(cat | jq -Rs .)}"
+  else
+    message_segment=""
+  fi
+
+  # Structured message for the assistant
+  system_message=$(echo "You are an AI assistant who follows instructions carefully providing consise responses without restating the question. Prefer using lists when appropriate. Use markdown syntax to format responses, only wrapping the response in a code block when necessary." | jq -Rs .)
+  user_message=$(echo "$1" | jq -Rs .)
+
+  message_to_assistant="{
+    \"messages\": [
+      {\"role\":\"system\",\"content\":$system_message},
+      {\"role\":\"user\",\"content\":$user_message}
+      $message_segment
+    ],
+    \"max_tokens\": 800,
+    \"temperature\": 0.7,
+    \"frequency_penalty\": 0,
+    \"presence_penalty\": 0,
+    \"top_p\": 0.95,
+    \"stop\": null
+  }"
+
+  # cURL request
+  response=$(curl "$OPENAI_API_BASE/openai/deployments/$OPENAI_DEPLOYMENT_NAME/chat/completions?api-version=$OPENAI_API_VERSION" \
+    -s \
+    -H "Content-Type: application/json" \
+    -H "api-key: $OPENAI_API_KEY" \
+    --data-binary "$message_to_assistant")
+
+  # Extract the message content with jq and print
+  content=$(jq -r '.choices[0].message.content' <<< "$response")
+  pbcopy <<< $content
+  echo "$content"
+}
