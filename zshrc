@@ -153,12 +153,12 @@ mvm() {
 # OPENAPI Variables
 #
 export OPENAI_API_BASE="https://amperity-engineering.openai.azure.com"
-export OPENAI_API_KEY=$(vault read -field=key az-stage/secret/service/openai/amperity-engineering)
 export OPENAI_TYPE=azure
 export OPENAI_API_VERSION="2024-02-01"
 export OPENAI_DEPLOYMENT_NAME="gpt-4o"
 
 ask() {
+  [[ -z ${OPENAI_API_KEY} ]] && export OPENAI_API_KEY=$(vault read -field=key az-stage/secret/service/openai/amperity-engineering)
   # Check if there's input from a pipe. If there is, store it in the 'message' variable.
   if [ -p /dev/stdin ]; then
     message_segment=",{\"role\":\"user\",\"content\":$(cat | jq -Rs .)}"
