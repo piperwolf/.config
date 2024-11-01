@@ -10,6 +10,7 @@ run: clean link-ssh-config
 	-ln -s "${PWD}/shadow-cljs" ~/.config/shadow-cljs
 	-ln -s "${PWD}/tmuxp" ~/.config/tmuxp
 	-ln -s "${PWD}/kitty" ~/.config/kitty
+	-ln -s "${PWD}/gitconfig" ~/.gitconfig
 
 ifeq ($(shell uname), Darwin)
 link-ssh-config:
@@ -32,3 +33,4 @@ clean:
 	-unlink ~/.config/tmuxp
 	-unlink ~/.config/kitty
 	-unlink ~/.ssh/config
+	-unlink ~/.gitconfig

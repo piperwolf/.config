@@ -1,4 +1,4 @@
-{:user {:plugins [[lein-monolith "1.9.1"]
+{:user {:plugins [[lein-monolith "1.10.0"]
                   [mvxcvi/whidbey "2.2.1"]
                   [cider/cider-nrepl "0.30.0"]
                   [lein-cprint "1.3.3"]

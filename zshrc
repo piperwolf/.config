@@ -3,6 +3,7 @@
 # Aliases
 alias vim="nvim"
 alias aurora="arch -x86_64 aurora"
+alias g="git status"
 
 export PROJECTS=~/projects
 
@@ -49,6 +50,10 @@ print-wipe() {
 
 bbr() {
    rlwrap bb
+}
+
+upstream-install() {
+   lein monolith each :upstream :parallel 4 install
 }
 
 # Path
@@ -195,4 +200,16 @@ ask() {
   content=$(jq -r '.choices[0].message.content' <<< "$response")
   pbcopy <<< $content
   echo "$content"
+}
+
+ui-flake-test() {
+  npx shadow-cljs compile ci
+  # Run karma tests 50 times to check for flakiness and report the results
+  for i in {1..50}; do
+      echo "Running tests iteration $i"
+      npx karma start --single-run
+      if [ $? -ne 0 ]; then
+          echo "Tests failed on iteration $i"
+      fi
+    done
 }

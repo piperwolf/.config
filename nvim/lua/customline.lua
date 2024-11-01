@@ -159,12 +159,32 @@ gls.short_line_left[1] = {
   },
 }
 
+-- gls.short_line_left[2] = {
+--   SFileName = {
+--     provider =  'SFileName',
+--     condition = condition.buffer_not_empty,
+--     highlight = {colors.fg,colors.bg,'bold'}
+--   }
+-- }
+
 gls.short_line_left[2] = {
-  SFileName = {
-    provider =  'SFileName',
+  FileOrDirectoryName = {
+    provider = function()
+      local file_name = fileinfo.get_current_file_name()
+      local file_path = fileinfo.get_current_file_path()
+      local namespace = string.match(file_path, '/src/(.*)%.clj') or string.match(file_path, '/test/(.*)%.clj')
+
+      if namespace then
+        namespace = namespace:gsub('/', '.')
+        namespace = namespace:gsub('_', '-')
+        return namespace .. ' '
+      end
+
+      -- If it's not a .clj file or namespace not found, return just the file name
+      return file_name .. ' '
+    end,
     condition = condition.buffer_not_empty,
-    highlight = {colors.fg,colors.bg,'bold'}
-  }
+    highlight = {colors.magenta,colors.bg,'bold'}}
 }
 
 gls.short_line_right[1] = {

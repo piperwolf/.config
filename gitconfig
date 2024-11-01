@@ -1,0 +1,10 @@
+[init]
+	defaultBranch = main
+[user]
+	name = Piper Wolf
+	email = spencer.wolf@amperity.com
+[push]
+	autoSetupRemote = true
+[core]
+    untrackedCache = true
+    fsmonitor = true
