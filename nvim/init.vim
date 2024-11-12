@@ -69,3 +69,16 @@ autocmd BufWritePost *.cl* execute 'silent !cljstyle fix "%:p"' | :edit!
 """ Before using kondo: https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md
 let g:ale_linters = {'clojure': ['clj-kondo']}
 
+" Set colorscheme based on time
+function! SetColorschemeBasedOnTime()
+  let hour = str2nr(strftime("%H"))
+  if hour >= 19 || hour < 5
+    colorscheme nightfox
+  else
+    colorscheme dayfox
+  endif
+endfunction
+
+" Run the function when Vim starts
+autocmd VimEnter * call SetColorschemeBasedOnTime()
+
