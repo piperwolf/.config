@@ -1,4 +1,4 @@
-run: clean
+run: clean link-ssh-config
 	-ln -s "${PWD}/zshrc" ~/.zshrc
 	-ln -s "${PWD}/lein" ~/.lein
 	-ln -s "${PWD}/tmux.conf" ~/.tmux.conf
@@ -10,7 +10,15 @@ run: clean
 	-ln -s "${PWD}/shadow-cljs" ~/.config/shadow-cljs
 	-ln -s "${PWD}/tmuxp" ~/.config/tmuxp
 	-ln -s "${PWD}/kitty" ~/.config/kitty
-	-ln -s "${PWD}/ssh-config" ~/.ssh/config
+
+ifeq ($(shell uname), Darwin)
+link-ssh-config:
+	ln -s "${PWD}/ssh-config" ~/.ssh/config
+else
+link-ssh-config:
+	@echo "Skipping SSH config link, not on macOS."
+endif
+
 clean:
 	-unlink ~/.zshrc
 	-unlink ~/.lein
