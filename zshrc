@@ -213,3 +213,20 @@ ui-flake-test() {
       fi
     done
 }
+
+killport() {
+  if [[ -z $1 ]]; then
+    echo "Usage: killport <port_number>"
+    return 1
+  fi
+
+  local pid=$(lsof -ti :$1)
+
+  if [[ -n $pid ]]; then
+    kill -9 $pid
+    echo "Killed process $pid on port $1"
+  else
+    echo "No process found running on port $1"
+  fi
+}
+
